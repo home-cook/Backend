@@ -14,7 +14,7 @@ router.post('/signup', (req,res) => {
                 res.status(201).json({message:`User with email address ${user.email} was successfully created.`})
             })
             .catch(err => {
-                res.status(500).json({message:'Something went wrong during user registration.'})
+                err.status(500).json({message:'Something went wrong during user registration.'})
             })
     } else {
         res.status(400).json({message:'Bad Request'})
@@ -37,7 +37,7 @@ router.post('/signin', (req,res) => {
                 }
             })
             .catch(err => {
-                res.status(500).json({message:'Something went wrong during signin process.'})
+                err.status(500).json({message:'Something went wrong during signin process.'})
             })
     } else {
         res.status(400).json({message:'Username & password required.'})
